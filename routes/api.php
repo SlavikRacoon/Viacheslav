@@ -48,9 +48,11 @@ Route::group(['prefix' => 'mechanic'], function () {
 
 });
 
-
-Route::post('car', 'CarController@create');
-Route::get('car/{id}/getcar', 'CarController@getCar');
+Route::group(['prefix' => 'car'], function () {
+    Route::post('', 'CarController@create');
+    Route::post('manual', 'CarController@createManual');
+    Route::get('{id}/getcar', 'CarController@getCar');
+});
 
 Route::post('owner', 'OwnerController@create');
 
