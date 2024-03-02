@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MechanicCreateManualRequest;
 use App\Http\Requests\MechanicCreateRequest;
 use App\Models\Mechanic;
 use App\Models\Owner;
@@ -17,7 +18,7 @@ class MechanicController extends Controller
 
     }
 
-    public function createManual(Request $request, MechanicServices $service):Mechanic
+    public function createManual(MechanicCreateManualRequest $request, MechanicServices $service):Mechanic
     {
 
         return $service->createManual($request->name);
