@@ -16,6 +16,13 @@ class MechanicController extends Controller
        return response()->json(['message' => 'mechanic created']);
 
     }
+
+    public function createManual(Request $request, MechanicServices $service):Mechanic
+    {
+
+        return $service->createManual($request->name);
+
+    }
     public function getOwnerThroughCar(int $id, MechanicServices $service):Owner
     {
         return  $service->getOwnerThroughCar(Mechanic::find($id));

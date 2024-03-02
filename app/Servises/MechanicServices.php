@@ -11,11 +11,15 @@ class MechanicServices
     public function create(string $name):void
     {
         dispatch(new CreateMechanicJob($name))->onQueue('Mechanic');
-//        $new_mechanic = new Mechanic();
-//        $new_mechanic->name = $name;
-//        $new_mechanic->save();
-//
-//        return $new_mechanic;
+
+    }
+    public function createManual(string $name):Mechanic
+    {
+        $new_mechanic = new Mechanic();
+        $new_mechanic->name = $name;
+        $new_mechanic->save();
+
+        return $new_mechanic;
     }
 
     public function getOwnerThroughCar(Mechanic $mechanic): Owner
