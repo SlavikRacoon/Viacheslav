@@ -49,9 +49,11 @@ Route::group(['prefix' => 'mechanic'], function () {
 
 });
 
-
-Route::post('car', 'CarController@create');
-Route::get('car/{id}/getcar', 'CarController@getCar');
+Route::group(['prefix' => 'car'], function () {
+    Route::post('', 'CarController@create');
+    Route::post('manual', 'CarController@createManual');
+    Route::get('{id}/car', 'CarController@getCar');
+});
 
 Route::post('owner', 'OwnerController@create');
 
@@ -62,8 +64,7 @@ Route::group(['prefix' => 'project'], function () {
 
 Route::post('environment', 'EnvironmentController@create');
 
-//Route::post('deployment', 'DeploymentController@create');
-Route::post('deployment', [\App\Http\Controllers\DeploymentController::class, 'create']);
+Route::post('deployment', 'DeploymentController@create');
 
 Route::get('posts', 'PostController@postDataCreate2');
 
