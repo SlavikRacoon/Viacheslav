@@ -62,8 +62,8 @@ Route::group(['prefix' => 'project'], function () {
 
 Route::post('environment', 'EnvironmentController@create');
 
-Route::post('deployment', 'DeploymentController@create');
-
+//Route::post('deployment', 'DeploymentController@create');
+Route::post('deployment', [\App\Http\Controllers\DeploymentController::class, 'create']);
 
 Route::get('posts', 'PostController@postDataCreate2');
 
