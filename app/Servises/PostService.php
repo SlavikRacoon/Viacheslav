@@ -9,10 +9,18 @@ use App\Models\Post;
 use App\Pipeline\Post\CheckForBadWords;
 use App\Pipeline\Post\CheckForPlagiate;
 use App\Pipeline\Post\IfActual;
+use App\Traits\NaturePost;
+use App\Traits\NewsPost;
 use Illuminate\Pipeline\Pipeline;
 
 class PostService
 {
+    use NewsPost, NaturePost
+    {
+        NewsPost::getPost insteadof NaturePost;
+    }
+
+    public string $post = "10";
 	public function create(string $topic, string $text, int $user_id, string $comment = null): Post
 	{
 //        dispatch(new CreatePostJob($topic, $text, $user_id, $comment))->onQueue('Posts');
@@ -73,6 +81,11 @@ class PostService
         $api->yourMethod();
         $data = json_decode($api->yourMethod(), true);
         return $data;
+    }
+
+    public function checkPrivateTest()
+    {
+        $this->testPost();
     }
 
 }
