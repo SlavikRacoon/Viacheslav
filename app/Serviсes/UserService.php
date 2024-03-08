@@ -18,7 +18,7 @@ class UserService
             'name' => $name,
             'password' => $password,
             'email' => $email,
-            'phone' => $phone,
+            'telephone_number' => $phone,
         ]);
 
         if($avatar)
