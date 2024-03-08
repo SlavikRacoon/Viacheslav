@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserCreateRequest;
 use App\Models\Post;
+use App\Models\Product;
 use App\Models\Role;
 use App\Models\User;
 use App\Serviсes\UserService;
@@ -51,6 +52,11 @@ class UserController extends Controller
         $service->assingRole($user, $role);
 
         return response()->json(['message' => 'role assigned']);
+    }
+
+    public  function pay(int $user_id, string $currency, int $product_id, UserService $service):JsonResponse
+    {
+        return response()->json($service->pay($currency, Product::find($product_id), User::find($user_id)));
     }
 }
 

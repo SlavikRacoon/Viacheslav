@@ -34,6 +34,7 @@ Route::group(['prefix' => 'user'], function () {
             Route::get('post/last', 'UserController@getLastsPost');
             Route::get('post/oldest', 'UserController@getOldestPost');
             Route::post('role/{role_id}', 'UserController@assingRole');
+            Route::post('currency/{currency}/product/{product_id}', 'UserController@pay');
         });
 });
 
@@ -67,6 +68,8 @@ Route::post('environment', 'EnvironmentController@create');
 Route::post('deployment', 'DeploymentController@create');
 
 Route::get('posts', 'PostController@postDataCreate2');
+
+Route::post('product', 'ProductController@create');
 
 
 

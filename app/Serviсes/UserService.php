@@ -3,6 +3,7 @@
 namespace App\Serviсes;
 
 use App\Models\Post;
+use App\Models\Product;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Collection;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class UserService
 {
+    public const PREFIX_FOR_PAYMENT = 'payment_method_';
     public function create(string $name, string $password, string $email, string $phone, string $avatar = null): User
     {
         try {
@@ -54,6 +56,11 @@ class UserService
     public function assingRole(User $user, Role $role)
     {
        $user->roles()->attach($role);
+    }
+
+    public function pay(string $currency, Product $product, User $user):string
+    {
+       return app(UserService::PREFIX_FOR_PAYMENT . strtoupper($currency))->pay($product, $user);
     }
 
 }
