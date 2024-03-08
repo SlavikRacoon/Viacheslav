@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProjectCreateRequest;
 use App\Models\Deployment;
 use App\Models\Project;
-use App\Servises\ProjectServices;
+use App\Serviсes\ProjectServices;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 

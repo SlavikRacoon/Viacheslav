@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Servises;
+namespace App\Serviсes;
 
 use App\Api\ExampleGazzle;
 use App\Api\PostDataCreate;

@@ -26,6 +26,7 @@ class UserCreateRequest extends FormRequest
             'name' => ['required', 'string', 'max:30', 'unique:users'],
             'email' => ['required','email:rfc,dns', 'unique:users'],
             'password' => ['required', Password::min(8)->letters()->mixedCase()->numbers()->symbols()->uncompromised()],
+            'phone' => ['required'],
             'avatar' => ['nullable', 'string'],
         ];
     }
@@ -43,6 +44,8 @@ class UserCreateRequest extends FormRequest
 
                 'password.required' => 'Password is required',
                 'password.min' => 'Password must have more than 8 string',
+
+                'phone.required' => 'Password is required',
 
                 'avatar.string' => 'Avatar path type must be string',
 

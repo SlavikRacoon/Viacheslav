@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EnvironmentCreateRequest;
 use App\Models\Environment;
-use App\Servises\EnvironmentServices;
+use App\Serviсes\EnvironmentServices;
 use Illuminate\Http\Request;
 
 class EnvironmentController extends Controller

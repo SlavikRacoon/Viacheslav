@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Servises;
+namespace App\Serviсes;
 
 use App\Models\Post;
 use App\Models\Role;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class UserService
 {
-    public function create(string $name, string $password, string $email, string $avatar = null): User
+    public function create(string $name, string $password, string $email, string $phone, string $avatar = null): User
     {
         try {
             DB::beginTransaction();
@@ -18,6 +18,7 @@ class UserService
             'name' => $name,
             'password' => $password,
             'email' => $email,
+            'phone' => $phone,
         ]);
 
         if($avatar)
