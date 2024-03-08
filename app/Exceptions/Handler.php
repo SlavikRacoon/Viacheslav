@@ -28,7 +28,10 @@ class Handler extends ExceptionHandler
         $this->renderable(function (Throwable $e, Request $request) {
             return response()->json([
                 'message' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
                 'status' => $e->getCode() == 0 ? 403 : $e->getCode(),
+                'trace' => $e->getTraceAsString(),
             ], $e->getCode() == 0 ? 403 : $e->getCode());
         });
     }
