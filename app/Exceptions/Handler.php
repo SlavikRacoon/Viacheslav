@@ -29,7 +29,7 @@ class Handler extends ExceptionHandler
             return response()->json([
                 'message' => $e->getMessage(),
                 'status' => $e->getCode() == 0 ? 403 : $e->getCode(),
-            ], $e->getCode() == 0 ? 403 : $e->getCode());
+            ], $e->getCode() == 0 || !is_numeric($e->getCode()) || $e->getCode() > 500 ? 403 : $e->getCode());
         });
     }
 }
