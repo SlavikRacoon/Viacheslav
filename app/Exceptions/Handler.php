@@ -32,7 +32,7 @@ class Handler extends ExceptionHandler
                 'line' => $e->getLine(),
                 'status' => $e->getCode() == 0 ? 403 : $e->getCode(),
                 'trace' => $e->getTraceAsString(),
-            ], $e->getCode() == 0 ? 403 : $e->getCode());
+            ], $e->getCode() == 0 || !is_numeric($e->getCode()) || $e->getCode() > 500 ? 403 : $e->getCode());
         });
     }
 }
