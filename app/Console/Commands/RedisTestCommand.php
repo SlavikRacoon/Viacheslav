@@ -2,17 +2,17 @@
 
 namespace App\Console\Commands;
 
-use App\Serviсes\PostService;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 
-class AddNewPost extends Command
+class RedisTestCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:add-new-post{--topic=}{--text=}{--user_id=}';
+    protected $signature = 'redis:go';
 
     /**
      * The console command description.
@@ -24,8 +24,12 @@ class AddNewPost extends Command
     /**
      * Execute the console command.
      */
-    public function handle(PostService $service)
+    public function handle()
     {
-        $service->create($this->option('topic'),$this->option('text'),$this->option('user_id'));
+        $str = 'some string';
+        $result = Cache::remember('my_string', 60*60, function () use ($str){
+            return $str;
+       });
+        dd($result);
     }
 }

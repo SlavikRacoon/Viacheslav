@@ -6,7 +6,7 @@ use App\Http\Requests\MechanicCreateManualRequest;
 use App\Http\Requests\MechanicCreateRequest;
 use App\Models\Mechanic;
 use App\Models\Owner;
-use App\Servises\MechanicServices;
+use App\Serviсes\MechanicServices;
 use Illuminate\Http\Request;
 
 class MechanicController extends Controller

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CarCreateManualRequest;
 use App\Http\Requests\CarCreateRequest;
 use App\Models\Car;
-use App\Servises\CarServices;
+use App\Serviсes\CarServices;
 
 
 class CarController extends Controller
