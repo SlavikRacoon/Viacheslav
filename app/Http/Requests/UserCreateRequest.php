@@ -26,7 +26,6 @@ class UserCreateRequest extends FormRequest
             'name' => ['required', 'string', 'max:30', 'unique:users'],
             'email' => ['required','email:rfc,dns', 'unique:users'],
             'password' => ['required', Password::min(8)->letters()->mixedCase()->numbers()->symbols()->uncompromised()],
-            ''
             'avatar' => ['nullable', 'string'],
         ];
     }
