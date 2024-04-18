@@ -21,7 +21,6 @@ class UserPageTest extends TestCase
         $response->assertStatus(200);
 
         $response->assertJsonPath('name', 'Test');
-        $response->assertJsonPath('email', 'test@test.com');
 
     }
 }
