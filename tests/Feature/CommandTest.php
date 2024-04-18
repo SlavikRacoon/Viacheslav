@@ -14,6 +14,6 @@ class CommandTest extends TestCase
     public function test_command_make_user(): void
     {
         $this->artisan('user:make')
-        ->assertSuccessful();
+            ->assertSuccessful();
     }
 }

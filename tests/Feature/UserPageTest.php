@@ -17,7 +17,6 @@ class UserPageTest extends TestCase
         $this->assertEquals(1, $a);
 
 
-
         $response = $this->get('/api/user/1/');
         $response->assertStatus(200);
 

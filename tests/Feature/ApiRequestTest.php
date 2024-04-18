@@ -17,7 +17,7 @@ class ApiRequestTest extends TestCase
             'name' => 'Telephone',
             'description' => 'Coll!',
             'price' => '100'
-            ]);
+        ]);
 
         $response
             ->assertStatus(201)
